@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Turismo</title>
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Scripts -->
+    <script src="mapa.js"></script>
+</head>
+
+<body onload="main()">
+    <header>
+        <h1>App Turismo</h1>
+    </header>
+
+    <div id="content">
+        <div id="content-bar">
+            <div id="navigation">
+                <div class="nav-item">Eventos</div>
+                <div class="nav-item">Sitios y Atractivos</div>
+                <div class="nav-item">Puntos de Asistencia</div>
+                <div class="nav-item">Sitios</div>
+                <div class="nav-item">Comercios</div>
+                <div class="nav-item">Productos</div>
+            </div>
+        </div>
+
+        <div id="map"></div>
+    </div>
+</body>
+
+</html>
