@@ -1,6 +1,5 @@
 
-function main() {
-    console.log("hola")
+function iniciarMapa() {
     let map = L.map('map').setView([-34.5433, -58.7000], 13);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

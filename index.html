@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Scripts -->
-    <script src="mapa.js"></script>
+    <script src="scripts/mapa.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/main.js"></script>
 </head>
 
 <body onload="main()">
@@ -25,14 +27,40 @@
     </header>
 
     <div id="content">
+
         <div id="content-bar">
             <div id="navigation">
-                <div class="nav-item">Eventos</div>
-                <div class="nav-item">Sitios y Atractivos</div>
-                <div class="nav-item">Puntos de Asistencia</div>
-                <div class="nav-item">Sitios</div>
-                <div class="nav-item">Comercios</div>
-                <div class="nav-item">Productos</div>
+                <div class="nav-item" id="nav-eventos" onclick="changeNavItem('eventos')">
+                    Eventos
+                </div>
+                <div class="nav-item" id="nav-sitios" onclick="changeNavItem('sitios')">
+                    Sitios y Atractivos
+                </div>
+                <div class="nav-item" id="nav-puntos" onclick="changeNavItem('puntos')">
+                    Puntos de Asistencia
+                </div>
+                <div class="nav-item" id="nav-comercios" onclick="changeNavItem('comercios')">
+                    Comercios
+                </div>
+                <div class="nav-item" id="nav-productos" onclick="changeNavItem('productos')">
+                    Productos
+                </div>
+            </div>
+
+            <div class="content-hidden" id="cont-eventos">
+                <p>Eventos</p>
+            </div>
+            <div class="content-hidden" id="cont-sitios">
+                <p>Sitios y Atractivos</p>
+            </div>
+            <div class="content-hidden" id="cont-puntos">
+                <p>Puntos de Asistencia</p>
+            </div>
+            <div class="content-hidden" id="cont-comercios">
+                <p>Comercios</p>
+            </div>
+            <div class="content-hidden" id="cont-productos">
+                <p>Productos</p>
             </div>
         </div>
 
