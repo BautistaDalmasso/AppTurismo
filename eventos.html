@@ -1,8 +1,61 @@
 <!DOCTYPE html>
 <head>
     <title>Eventos</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script src="scripts/mapa.js"></script>
+
 </head>
 <body>
     <h1>Eventos</h1>
-    <a href="home.html">Volver</a>
+    <div id="content">
+        <div id="content-bar">
+            <div id="navigation">
+                <div class="nav-item" id="nav-home" onclick="changeNavItem('home')">
+                    Home
+                  </div>
+                <div class="nav-item" id="nav-eventos" onclick="changeNavItem('eventos')">
+                    Eventos
+                </div>
+                <div class="nav-item" id="nav-sitios" onclick="changeNavItem('sitios')">
+                    Sitios y Atractivos
+                </div>
+                <div class="nav-item" id="nav-puntos" onclick="changeNavItem('puntos')">
+                    Puntos de Asistencia
+                </div>
+                <div class="nav-item" id="nav-comercios" onclick="changeNavItem('comercios')">
+                    Comercios
+                </div>
+                <div class="nav-item" id="nav-productos" onclick="changeNavItem('productos')">
+                    Productos
+                </div>
+            </div>
+            <section id="eventos">
+                <h2>Próximos eventos</h2>
+                <ul>
+                  <li>
+                    <h3>Evento 1</h3>
+                    <img src="imagenes/event1.jpg" alt="Imagen del evento 1">
+                    <p><strong>Fecha:</strong> 1 de enero de 2022</p>
+                    <p><strong>Lugar:</strong> San Miguel</p>
+                    <p><strong>Descripción:</strong> Fiestas patronales de San Miguel.</p>
+                  </li>
+                  <li>
+                    <h3>Evento 2</h3>
+                    <img src="imagenes/event2.jpg" alt="Imagen del evento 2">
+                    <p><strong>Fecha:</strong> 15 de febrero de 2022</p>
+                    <p><strong>Lugar:</strong> Malvinas Argentinas</p>
+                    <p><strong>Descripción:</strong> Concierto en Malvinas Argentinas.</p>
+                  </li>
+                </ul>
+              </section>
+        </div>
+        <div id="map"></div>
+    </div>
 </body>

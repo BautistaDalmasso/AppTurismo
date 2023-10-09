@@ -7,23 +7,21 @@ html, body {
 header {
     height: 10%;
     margin: 0;
-}
+  }
 
-header h1 {
+  header h1 {
     margin: 0;
     padding: 10px;
-}
+  }
 
 #content {
     height: 90%;
-
     display: flex;
 }
 
 #content-bar {
     background-color: rgb(14, 224, 224);  /* DEBUG */
-
-    width: 30%;
+    width: 40%;
     height: 100%;
 }
 
@@ -55,4 +53,32 @@ header h1 {
 #map {
     width: 70%;
     height: 100%;
+}
+
+#eventos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#eventos li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white;
+}
+
+#eventos li h3 {
+  font-size: 24px;
+}
+  
+#eventos li img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
 }
