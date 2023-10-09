@@ -27,6 +27,7 @@ header {
 }
 
 #navigation {
+    height: 5%;
     display: flex;
 }
 
@@ -41,6 +42,11 @@ header {
 .nav-item:hover, .nav-selected {
     background-color: brown; /* DEBUG */
     box-shadow: 0px 0px 0px 5px brown;
+}
+
+#content-items {
+    max-height: 95%;
+    overflow-y: auto;
 }
 
 .content-hidden, .content-shown {
