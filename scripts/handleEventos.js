@@ -12,5 +12,6 @@ function crearHTMLEvento(evento) {
         <p>${evento.descripcion}</p>
         <p>En: ${evento.lugar}</p>
         <p>Fecha: ${evento.fecha} Hora: ${evento.hora}</p>
+        <hr>
     </div>`;
 }
