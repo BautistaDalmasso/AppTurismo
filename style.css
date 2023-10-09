@@ -16,6 +16,7 @@ header {
 
 #content {
     height: 90%;
+    
     display: flex;
 }
 
@@ -42,6 +43,10 @@ header {
     box-shadow: 0px 0px 0px 5px brown;
 }
 
+.content-hidden, .content-shown {
+    padding: 5px 0 0 5px;
+}
+
 .content-hidden {
     display: none;
 }
@@ -55,30 +60,16 @@ header {
     height: 100%;
 }
 
-#eventos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#eventos li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid black;
+.evento {
+    border: 1px solid #ccc;
+    background-color: #fff;
     padding: 10px;
-    background-color: white;
+    margin-bottom: 10px;
+    max-width: 500px; /* set the maximum width to 500 pixels */
+    margin: 0 auto; /* center the element horizontally */
 }
 
-#eventos li h3 {
-  font-size: 24px;
-}
-  
-#eventos li img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
+.evento img {
+    max-width: 100%;
+    height: auto;
 }
