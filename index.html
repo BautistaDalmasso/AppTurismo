@@ -56,7 +56,12 @@
 
             <div id="content-items">
                 <div class="content-hidden" id="cont-eventos">
-                    <p>Eventos</p>
+                    <div class="filter" id="filter-events">
+                        <input class="filter-field" id="search-event" name="nombre evento" 
+                        type="search" placeholder="Nombre o descripción">
+                        <button onclick="filtrarEventos()">Filtrar</button>
+                    </div>
+                    <div id="result-eventos"></div>
                 </div>
                 <div class="content-hidden" id="cont-sitios">
                     <p>Sitios y Atractivos</p>

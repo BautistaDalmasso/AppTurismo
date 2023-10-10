@@ -66,6 +66,15 @@ header {
     height: 100%;
 }
 
+.filter {
+    padding: 10px;
+    text-align: center;
+}
+
+.filter-field {
+    border-radius: 10px;
+}
+
 .evento {
     border: 1px solid #ccc;
     background-color: #fff;
