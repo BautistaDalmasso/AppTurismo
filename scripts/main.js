@@ -4,4 +4,5 @@ function main() {
     iniciarMapa();
     changeNavItem(NAV_INICIAL);
     agregarHTMLEventos(eventos);
+    agregarPuntosDeAsistencia();
 }
