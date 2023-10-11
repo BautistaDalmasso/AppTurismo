@@ -4,30 +4,39 @@ const SELECTED     = "nav-selected";
 const HIDDEN       = "content-hidden";
 const SHOWN        = "content-shown";
 
-var currentNavItem = "nav-eventos";
-var currentContent = "cont-eventos"
+var currentItem = "eventos";
 
-function changeNavItem(item) {
-    let navItem = getNav(item);
-    let contItem = getCont(item);
+var toggleAction = {
+    "eventos": toggleEventos,
+    "sitios": function () {console.log("TODO")},
+    "puntos": togglePuntos,
+    "comercios": function () {console.log("TODO")},
+    "productos": function () {console.log("TODO")}
+}
+
+
+function changeNavItem(newItem) {
+    let navItem = getNav(newItem);
+    let contItem = getCont(newItem);
 
     changeButtonClass(navItem);
     showContent(contItem);
 
-    currentNavItem = navItem;
-    currentContent = contItem;
+    toggleAction[currentItem]();
+    toggleAction[newItem]();
+    currentItem = newItem;
 }
 
-function changeButtonClass(navItem) {
-    document.getElementById(currentNavItem).className = NOT_SELECTED;
+function changeButtonClass(newNavItem) {
+    document.getElementById(getNav(currentItem)).className = NOT_SELECTED;
 
-    document.getElementById(navItem).className = SELECTED;
+    document.getElementById(newNavItem).className = SELECTED;
 }
 
-function showContent(contItem) {
-    document.getElementById(currentContent).className = HIDDEN;
+function showContent(newContItem) {
+    document.getElementById(getCont(currentItem)).className = HIDDEN;
 
-    document.getElementById(contItem).className = SHOWN;
+    document.getElementById(newContItem).className = SHOWN;
 }
 
 function getNav(item) {

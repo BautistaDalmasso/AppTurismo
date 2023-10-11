@@ -9,8 +9,8 @@ function iniciarMapa() {
     }).addTo(map);
 }
 
-function dibujarMarker(id, posicion, texto) {
-    _markers[id] = L.marker(posicion).addTo(map)
+function agregarMarker(id, posicion, texto) {
+    _markers[id] = L.marker(posicion)
                     .bindPopup(texto);
 }
 

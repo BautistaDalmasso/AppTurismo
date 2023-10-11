@@ -1,3 +1,5 @@
+var _enPuntos = false;
+
 function filtrarPuntos() {
     /** Muestra solo los Puntos de Asistencia y sus markers que se ajusten al filtro ingresado por el usuario. */
     let res = _obtenerPuntosFiltrados();
@@ -18,41 +20,14 @@ function _obtenerPuntosFiltrados() {
     );
 }
 
-function _esconderPuntos() {
-    /** Esconde todos los puntos y sus markers. */ 
-
-    _manipularPuntos(puntosDeAsistencia, 
-        [punto => setMarkerVisibility(_idPunto(punto), false),
-        punto => $(`#${_idPunto(punto)}`).hide()]
-      );
-}
-
-function _mostrarPuntos(puntosAMostrar) {
-    /** Muestra los puntos deseados y sus markers. */ 
-
-    _manipularPuntos(puntosAMostrar, 
-        [punto => setMarkerVisibility(_idPunto(punto), true),
-        punto => $(`#${_idPunto(punto)}`).show()]
-    );
-}
-
-function _manipularPuntos(puntosAManipular, callbacks) {
-    callbacks.forEach(
-        callback => 
-        puntosAManipular.forEach(
-            punto => callback(punto)
-        )
-    );
-}
-
 function agregarPuntosDeAsistencia() {
-    _dibujarMarkersPuntos();
+    _agregarMarkersPuntos();
     _agregarPuntosAlContenido();
 }
 
-function _dibujarMarkersPuntos() {
+function _agregarMarkersPuntos() {
     puntosDeAsistencia.forEach(
-        punto => dibujarMarker(
+        punto => agregarMarker(
             _idPunto(punto), punto.posicion, 
             `<div class="popup">
             ${punto.tipo} de asistencia<br/>${punto.nombre_lugar}
@@ -64,6 +39,16 @@ function _agregarPuntosAlContenido() {
     puntosDeAsistencia.forEach(
         punto => $("#result-puntos").append(crearHtmlPuntoAsistencia(punto))
     );
+}
+
+function togglePuntos() {
+    if (_enPuntos) {
+        _esconderPuntos();
+    }
+    else {
+        _mostrarPuntos(puntosDeAsistencia);
+    }
+    _enPuntos = !_enPuntos;
 }
 
 function crearHtmlPuntoAsistencia(punto) {
@@ -101,4 +86,32 @@ function _crearHtmlCentro(centro) {
 
 function _idPunto(punto) {
     return idHtmlContenido("punto", punto);
+}
+
+function _esconderPuntos() {
+    /** Esconde todos los puntos y sus markers. */ 
+
+    _manipularPuntos(puntosDeAsistencia, 
+        [punto => setMarkerVisibility(_idPunto(punto), false),
+        punto => $(`#${_idPunto(punto)}`).hide()]
+      );
+}
+
+function _mostrarPuntos(puntosAMostrar) {
+    /** Muestra los puntos deseados y sus markers. */ 
+
+    _manipularPuntos(puntosAMostrar, 
+        [punto => setMarkerVisibility(_idPunto(punto), true),
+        punto => $(`#${_idPunto(punto)}`).show()]
+    );
+}
+
+function _manipularPuntos(puntosAManipular, callbacks) {
+    console.log(puntosAManipular);
+    callbacks.forEach(
+        callback => 
+        puntosAManipular.forEach(
+            punto => callback(punto)
+        )
+    );
 }

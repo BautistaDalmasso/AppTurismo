@@ -33,6 +33,10 @@ function manipularEventos(eventosAManipular, callback) {
     );
 }
 
+function toggleEventos() {
+    return;
+}
+
 function agregarHtmlEventos(eventosAAgregar) {
     eventosAAgregar.forEach(
         evento => $("#result-eventos").append(crearHtmlEvento(evento))
