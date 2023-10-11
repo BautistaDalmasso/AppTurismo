@@ -75,16 +75,16 @@ header {
     border-radius: 10px;
 }
 
-.evento {
+.contenido {
     border: 1px solid #ccc;
     background-color: #fff;
     padding: 10px;
-    margin-bottom: 10px;
     max-width: 500px; /* set the maximum width to 500 pixels */
     margin: 0 auto; /* center the element horizontally */
+    margin-bottom: 10px;
 }
 
-.evento img {
+.contenido img {
     max-width: 100%;
     height: auto;
 }

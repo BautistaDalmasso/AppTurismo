@@ -6,3 +6,15 @@ function main() {
     agregarHTMLEventos(eventos);
     agregarPuntosDeAsistencia();
 }
+
+function idHTMLContenido(tipo, objeto) {
+    return `${tipo}-${objeto.id}`;
+}
+
+function htmlContenido(tipo, objeto, texto) {
+    return `
+    <div id="${idHTMLContenido(tipo, objeto)}" class="contenido">
+        ${texto}
+    </div>
+    `;
+}
