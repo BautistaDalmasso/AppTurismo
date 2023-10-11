@@ -1,12 +1,30 @@
 function filtrarEventos() {
+    /** Muestra solo los eventos que se ajustan al filtro ingresado por el usuario. */
+    let res = _obtenerEventosFiltrados();
+    
+    _esconderEventos();
+    _mostrarEventos(res);
+}
+
+function _obtenerEventosFiltrados() {
+    /** Devuelve todos los Eventos que se ajustan al filtro ingresado por el usuario.
+     *  El filtro es un texto que le permite a los usuarios buscar por nombre o descripción.
+     */
     let filtro = $("#search-event").val();
     
-    let res = eventos.filter(
+    return eventos.filter(
         evento => evento.nombre.includes(filtro) || evento.descripcion.includes(filtro)
     );
-    
+}
+
+function _esconderEventos() {
+    /** Esconde todos los eventos. */
     manipularEventos(eventos, evento => $(`#${_idEvento(evento)}`).hide());
-    manipularEventos(res, evento => $(`#${_idEvento(evento)}`).show());
+}
+
+function _mostrarEventos(eventosAMostrar) {
+    /** Muestra los eventos deseados. */ 
+    manipularEventos(eventosAMostrar, evento => $(`#${_idEvento(evento)}`).show());
 }
 
 function manipularEventos(eventosAManipular, callback) {
@@ -15,13 +33,13 @@ function manipularEventos(eventosAManipular, callback) {
     );
 }
 
-function agregarHTMLEventos(eventosAAgregar) {
+function agregarHtmlEventos(eventosAAgregar) {
     eventosAAgregar.forEach(
-        evento => $("#result-eventos").append(crearHTMLEvento(evento))
+        evento => $("#result-eventos").append(crearHtmlEvento(evento))
     );
 }
 
-function crearHTMLEvento(evento) {
+function crearHtmlEvento(evento) {
     return htmlContenido("evento", evento,
     `
     <h4>${evento.nombre}</h4>
@@ -34,5 +52,5 @@ function crearHTMLEvento(evento) {
 }
 
 function _idEvento(evento) {
-    return idHTMLContenido("evento", evento);
+    return idHtmlContenido("evento", evento);
 }

@@ -1,16 +1,36 @@
 function filtrarPuntos() {
+    /** Muestra solo los Puntos de Asistencia y sus markers que se ajusten al filtro ingresado por el usuario. */
+    let res = _obtenerPuntosFiltrados();
+
+    _esconderPuntos();
+
+    _mostrarPuntos(res);
+}
+
+function _obtenerPuntosFiltrados() {
+    /** Devuelve todos los Puntos de Asistencia que se ajustan al filtro ingresado por el usuario.
+    * El filtro es un texto que le permite a los usuarios buscar por nombre o dirección.
+    */
     let filtro = $("#search-punto").val();
 
-    let res = puntosDeAsistencia.filter(
+    return puntosDeAsistencia.filter(
         punto => punto.nombre_lugar.includes(filtro) || punto.direccion.includes(filtro)
     );
+}
+
+function _esconderPuntos() {
+    /** Esconde todos los puntos y sus markers. */ 
 
     _manipularPuntos(puntosDeAsistencia, 
-      [punto => setMarkerVisibility(_idPunto(punto), false),
-      punto => $(`#${_idPunto(punto)}`).hide()]
-    );
+        [punto => setMarkerVisibility(_idPunto(punto), false),
+        punto => $(`#${_idPunto(punto)}`).hide()]
+      );
+}
 
-    _manipularPuntos(res, 
+function _mostrarPuntos(puntosAMostrar) {
+    /** Muestra los puntos deseados y sus markers. */ 
+
+    _manipularPuntos(puntosAMostrar, 
         [punto => setMarkerVisibility(_idPunto(punto), true),
         punto => $(`#${_idPunto(punto)}`).show()]
     );
@@ -42,21 +62,21 @@ function _dibujarMarkersPuntos() {
 
 function _agregarPuntosAlContenido() {
     puntosDeAsistencia.forEach(
-        punto => $("#result-puntos").append(crearHTMLPuntoAsistencia(punto))
+        punto => $("#result-puntos").append(crearHtmlPuntoAsistencia(punto))
     );
 }
 
-function crearHTMLPuntoAsistencia(punto) {
+function crearHtmlPuntoAsistencia(punto) {
     let ret;
     if (punto.tipo == "Movil") {
-        ret = _crearHTMLMovil(punto); 
+        ret = _crearHtmlMovil(punto); 
     } else {
-        ret = _crearHTMLCentro(punto);
+        ret = _crearHtmlCentro(punto);
     }
     return ret;
 }
 
-function _crearHTMLMovil(movil) {
+function _crearHtmlMovil(movil) {
     return htmlContenido("punto", movil,
     `
     <h4>Móvil ${movil.nombre_lugar}</h4>
@@ -68,7 +88,7 @@ function _crearHTMLMovil(movil) {
     `);
 }
 
-function _crearHTMLCentro(centro) {
+function _crearHtmlCentro(centro) {
     return htmlContenido("punto", centro,
     `
     <h4>Centro ${centro.nombre_lugar}</h4>
@@ -80,5 +100,5 @@ function _crearHTMLCentro(centro) {
 }
 
 function _idPunto(punto) {
-    return _idPunto(punto);
+    return idHtmlContenido("punto", punto);
 }
