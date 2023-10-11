@@ -64,6 +64,7 @@ function _crearHTMLMovil(movil) {
         <p>Contacto: ${movil.contacto}</p>
         <p>Atiende el: ${movil.dia_att}</p>
         <p>Horario de atención: ${movil.horario_att}</p>
+        <button onClick=irA(${movil.posicion})>Ir al móvil</button>
     </div>
     `
 }
@@ -75,5 +76,6 @@ function _crearHTMLCentro(centro) {
     <p>Dirección: ${centro.direccion}</p>
     <p>Contacto: ${centro.contacto}</p>
     <p>Horario de atención: ${centro.horario_att}</p>
+    <button onClick=irA([${centro.posicion}])>Ir al centro</button>
     `);
 }

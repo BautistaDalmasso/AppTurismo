@@ -22,3 +22,7 @@ function setMarkerVisibility(id, visible) {
         map.removeLayer(marker);
     }
 }
+
+function irA(posicion) {
+    map.flyTo(posicion);
+}
