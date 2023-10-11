@@ -14,8 +14,18 @@ header {
     padding: 10px;
   }
 
+footer {
+    height: 2%;
+    float: right;
+}
+
+footer a {
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
 #content {
-    height: 90%;
+    height: 88%;
     
     display: flex;
 }
