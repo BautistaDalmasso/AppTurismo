@@ -5,11 +5,23 @@ function filtrarPuntos() {
         punto => punto.nombre_lugar.includes(filtro) || punto.direccion.includes(filtro)
     );
 
-    puntosDeAsistencia.forEach(
-        punto => setMarkerVisibility(idHTMLContenido("punto", punto), false)
+    _manipularPuntos(puntosDeAsistencia, 
+      [punto => setMarkerVisibility(idHTMLContenido("punto", punto), false),
+      punto => $(`#${idHTMLContenido("punto", punto)}`).hide()]
     );
-    res.forEach(
-        punto => setMarkerVisibility(idHTMLContenido("punto", punto), true)
+
+    _manipularPuntos(res, 
+        [punto => setMarkerVisibility(idHTMLContenido("punto", punto), true),
+        punto => $(`#${idHTMLContenido("punto", punto)}`).show()]
+    );
+}
+
+function _manipularPuntos(puntosAManipular, callbacks) {
+    callbacks.forEach(
+        callback => 
+        puntosAManipular.forEach(
+            punto => callback(punto)
+        )
     );
 }
 

@@ -5,8 +5,8 @@ function filtrarEventos() {
         evento => evento.nombre.includes(filtro) || evento.descripcion.includes(filtro)
     );
     
-    manipularEventos(eventos, evento => $(`#${idEvento(evento)}`).hide());
-    manipularEventos(res, evento => $(`#${idEvento(evento)}`).show());
+    manipularEventos(eventos, evento => $(`#${idHTMLContenido("evento", evento)}`).hide());
+    manipularEventos(res, evento => $(`#${idHTMLContenido("evento", evento)}`).show());
 }
 
 function manipularEventos(eventosAManipular, callback) {
