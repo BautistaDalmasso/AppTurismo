@@ -1,3 +1,18 @@
+function filtrarPuntos() {
+    let filtro = $("#search-punto").val();
+
+    let res = puntosDeAsistencia.filter(
+        punto => punto.nombre_lugar.includes(filtro) || punto.direccion.includes(filtro)
+    );
+
+    puntosDeAsistencia.forEach(
+        punto => setMarkerVisibility(idHTMLContenido("punto", punto), false)
+    );
+    res.forEach(
+        punto => setMarkerVisibility(idHTMLContenido("punto", punto), true)
+    );
+}
+
 function agregarPuntosDeAsistencia() {
     _dibujarMarkersPuntos();
     _agregarPuntosAlContenido();
@@ -5,7 +20,8 @@ function agregarPuntosDeAsistencia() {
 
 function _dibujarMarkersPuntos() {
     puntosDeAsistencia.forEach(
-        punto => dibujarPopup(punto.posicion, 
+        punto => dibujarMarker(
+            idHTMLContenido("punto", punto), punto.posicion, 
             `<div class="popup">
             ${punto.tipo} de asistencia<br/>${punto.nombre_lugar}
             </div>`)

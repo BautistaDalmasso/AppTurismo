@@ -1,4 +1,5 @@
 var map;
+var _markers = {};
 
 function iniciarMapa() { 
     map = L.map('map').setView([-34.5433, -58.7000], 13);
@@ -8,8 +9,16 @@ function iniciarMapa() {
     }).addTo(map);
 }
 
-function dibujarPopup(posicion, texto) {
-    L.marker(posicion).addTo(map)
-    .bindPopup(texto)
-    .openPopup();
+function dibujarMarker(id, posicion, texto) {
+    _markers[id] = L.marker(posicion).addTo(map)
+                    .bindPopup(texto);
+}
+
+function setMarkerVisibility(id, visible) {
+    let marker = _markers[id];
+    if (visible && !map.hasLayer(_markers)) {
+        map.addLayer(marker);
+    } else if (!visible && map.hasLayer(marker)) {
+        map.removeLayer(marker);
+    }
 }
