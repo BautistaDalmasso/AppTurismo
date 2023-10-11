@@ -5,8 +5,8 @@ function filtrarEventos() {
         evento => evento.nombre.includes(filtro) || evento.descripcion.includes(filtro)
     );
     
-    manipularEventos(eventos, evento => $(`#${idHTMLContenido("evento", evento)}`).hide());
-    manipularEventos(res, evento => $(`#${idHTMLContenido("evento", evento)}`).show());
+    manipularEventos(eventos, evento => $(`#${_idEvento(evento)}`).hide());
+    manipularEventos(res, evento => $(`#${_idEvento(evento)}`).show());
 }
 
 function manipularEventos(eventosAManipular, callback) {
@@ -31,4 +31,8 @@ function crearHTMLEvento(evento) {
     <p>Fecha: ${evento.fecha} Hora: ${evento.hora}</p>
     <img src="${evento.imagen}" alt="Imagen del evento">
     `);
+}
+
+function _idEvento(evento) {
+    return idHTMLContenido("evento", evento);
 }

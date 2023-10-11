@@ -6,13 +6,13 @@ function filtrarPuntos() {
     );
 
     _manipularPuntos(puntosDeAsistencia, 
-      [punto => setMarkerVisibility(idHTMLContenido("punto", punto), false),
-      punto => $(`#${idHTMLContenido("punto", punto)}`).hide()]
+      [punto => setMarkerVisibility(_idPunto(punto), false),
+      punto => $(`#${_idPunto(punto)}`).hide()]
     );
 
     _manipularPuntos(res, 
-        [punto => setMarkerVisibility(idHTMLContenido("punto", punto), true),
-        punto => $(`#${idHTMLContenido("punto", punto)}`).show()]
+        [punto => setMarkerVisibility(_idPunto(punto), true),
+        punto => $(`#${_idPunto(punto)}`).show()]
     );
 }
 
@@ -33,7 +33,7 @@ function agregarPuntosDeAsistencia() {
 function _dibujarMarkersPuntos() {
     puntosDeAsistencia.forEach(
         punto => dibujarMarker(
-            idHTMLContenido("punto", punto), punto.posicion, 
+            _idPunto(punto), punto.posicion, 
             `<div class="popup">
             ${punto.tipo} de asistencia<br/>${punto.nombre_lugar}
             </div>`)
@@ -57,16 +57,15 @@ function crearHTMLPuntoAsistencia(punto) {
 }
 
 function _crearHTMLMovil(movil) {
-    return `
-    <div id="${idHTMLContenido("punto", movil)}" class="contenido">
-        <h4>Móvil ${movil.nombre_lugar}</h4>
-        <p>Dirección: ${movil.direccion} </p>
-        <p>Contacto: ${movil.contacto}</p>
-        <p>Atiende el: ${movil.dia_att}</p>
-        <p>Horario de atención: ${movil.horario_att}</p>
-        <button onClick=irA(${movil.posicion})>Ir al móvil</button>
-    </div>
+    return htmlContenido("punto", movil,
     `
+    <h4>Móvil ${movil.nombre_lugar}</h4>
+    <p>Dirección: ${movil.direccion} </p>
+    <p>Contacto: ${movil.contacto}</p>
+    <p>Atiende el: ${movil.dia_att}</p>
+    <p>Horario de atención: ${movil.horario_att}</p>
+    <button onClick=irA([${movil.posicion}])>Ir al móvil</button>
+    `);
 }
 
 function _crearHTMLCentro(centro) {
@@ -78,4 +77,8 @@ function _crearHTMLCentro(centro) {
     <p>Horario de atención: ${centro.horario_att}</p>
     <button onClick=irA([${centro.posicion}])>Ir al centro</button>
     `);
+}
+
+function _idPunto(punto) {
+    return _idPunto(punto);
 }
