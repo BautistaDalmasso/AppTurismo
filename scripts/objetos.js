@@ -32,7 +32,7 @@ var eventos = [
 var puntosDeAsistencia = [
     {
         "id": 1,
-        "tipo": "centro",
+        "tipo": "Centro",
         "posicion": [-34.521672, -58.701168],
         "nombre_lugar": "UNGS",
         "direccion": "Juan María Gutiérrez 1150",
@@ -41,7 +41,7 @@ var puntosDeAsistencia = [
     },
     {
         "id": 2,
-        "tipo": "movil",
+        "tipo": "Movil",
         "posicion": [-34.523197, -58.700870],
         "nombre_lugar": "Colectivo al costado de la UNGS",
         "direccion": "Juan María Gutiérrez 1150",
@@ -51,7 +51,7 @@ var puntosDeAsistencia = [
     },
     {
         "id": 3,
-        "tipo": "centro",
+        "tipo": "Centro",
         "posicion": [-34.54337306092059, -58.7123753528407],
         "nombre_lugar": "Municipalidad de San Miguel",
         "direccion": "Domingo Faustino Sarmiento 1551",

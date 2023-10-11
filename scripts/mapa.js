@@ -9,7 +9,6 @@ function iniciarMapa() {
 }
 
 function dibujarPopup(posicion, texto) {
-    console.log(map);
     L.marker(posicion).addTo(map)
     .bindPopup(texto)
     .openPopup();

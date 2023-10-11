@@ -88,3 +88,7 @@ header {
     max-width: 100%;
     height: auto;
 }
+
+.popup {
+    text-align: center;
+}
