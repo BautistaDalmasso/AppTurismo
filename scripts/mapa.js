@@ -1,3 +1,6 @@
+const EVENT_TYPE = 0;
+const METHOD = 1;
+
 var map;
 var _markers = {};
 
@@ -9,9 +12,13 @@ function iniciarMapa() {
     }).addTo(map);
 }
 
-function agregarMarker(id, posicion, texto) {
+function agregarMarker(id, posicion, texto, listenMethodPairs) {
     _markers[id] = L.marker(posicion)
                     .bindPopup(texto);
+
+    listenMethodPairs.forEach(pair => {
+        _markers[id].on(pair[EVENT_TYPE], pair[METHOD])
+    });
 }
 
 function setMarkerVisibility(id, visible) {
@@ -25,4 +32,8 @@ function setMarkerVisibility(id, visible) {
 
 function irA(posicion) {
     map.flyTo(posicion);
+}
+
+function abrirPopup(id) {
+    _markers[id].openPopup();
 }

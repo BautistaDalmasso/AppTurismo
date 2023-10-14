@@ -1,4 +1,9 @@
+const HIGHLIGTED_PUNTO = "content-highligted";
+
 var _enPuntos = false;
+var _currentHighligtedPunto = "";
+
+var puntos = {};
 
 function filtrarPuntos() {
     /** Muestra solo los Puntos de Asistencia y sus markers que se ajusten al filtro ingresado por el usuario. */
@@ -21,24 +26,29 @@ function _obtenerPuntosFiltrados() {
 }
 
 function agregarPuntosDeAsistencia() {
-    _agregarMarkersPuntos();
-    _agregarPuntosAlContenido();
-}
-
-function _agregarMarkersPuntos() {
     puntosDeAsistencia.forEach(
-        punto => agregarMarker(
-            _idPunto(punto), punto.posicion, 
-            `<div class="popup">
-            ${punto.tipo} de asistencia<br/>${punto.nombre_lugar}
-            </div>`)
+        punto => _agregarPunto(punto)
     );
 }
 
-function _agregarPuntosAlContenido() {
-    puntosDeAsistencia.forEach(
-        punto => $("#result-puntos").append(crearHtmlPuntoAsistencia(punto))
+function _agregarPunto(punto) {
+    puntos[_idPunto(punto)] = punto;
+    _agregarMarkerPunto(punto);
+    _agregarPuntoAlContenido(punto);
+}
+
+function _agregarMarkerPunto(punto) {
+    agregarMarker(
+        _idPunto(punto), punto.posicion, 
+        `<div class="popup">
+        ${punto.tipo} de asistencia<br/>${punto.nombre_lugar}
+        </div>`,
+        [["click", function () {highlightPunto(punto)}]]
     );
+}
+
+function _agregarPuntoAlContenido(punto) {
+    $("#result-puntos").append(crearHtmlPuntoAsistencia(punto));
 }
 
 function togglePuntos() {
@@ -62,6 +72,7 @@ function crearHtmlPuntoAsistencia(punto) {
 }
 
 function _crearHtmlMovil(movil) {
+    let argumento = `"${_idPunto(movil)}"`;
     return htmlContenido("punto", movil,
     `
     <h4>Móvil ${movil.nombre_lugar}</h4>
@@ -69,19 +80,36 @@ function _crearHtmlMovil(movil) {
     <p>Contacto: ${movil.contacto}</p>
     <p>Atiende el: ${movil.dia_att}</p>
     <p>Horario de atención: ${movil.horario_att}</p>
-    <button onClick=irA([${movil.posicion}])>Ir al móvil</button>
+    <button onClick=irAPunto(${argumento})>Ir al móvil</button>
     `);
 }
 
 function _crearHtmlCentro(centro) {
+    let argumento = `"${_idPunto(centro)}"`;
     return htmlContenido("punto", centro,
     `
     <h4>Centro ${centro.nombre_lugar}</h4>
     <p>Dirección: ${centro.direccion}</p>
     <p>Contacto: ${centro.contacto}</p>
     <p>Horario de atención: ${centro.horario_att}</p>
-    <button onClick=irA([${centro.posicion}])>Ir al centro</button>
+    <button onClick=irAPunto(${argumento})>Ir al centro</button>
     `);
+}
+
+function irAPunto(idPunto) {
+    let punto = puntos[idPunto];
+    highlightPunto(punto);
+    irA(punto.posicion);
+    abrirPopup(idPunto);
+}
+
+function highlightPunto(punto) {
+    if (_currentHighligtedPunto != "") {
+        $(`#${_currentHighligtedPunto}`).removeClass(HIGHLIGTED_PUNTO);
+    }
+    $(`#${_idPunto(punto)}`).addClass(HIGHLIGTED_PUNTO);
+
+    _currentHighligtedPunto = _idPunto(punto);
 }
 
 function _idPunto(punto) {
