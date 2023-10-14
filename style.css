@@ -14,8 +14,18 @@ header {
     padding: 10px;
   }
 
+footer {
+    height: 2%;
+    float: right;
+}
+
+footer a {
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
 #content {
-    height: 90%;
+    height: 88%;
     
     display: flex;
 }
@@ -39,7 +49,7 @@ header {
     user-select: none;
 }
 
-.nav-item:hover, .nav-selected {
+.nav-item:hover, .nav-selected, .content-highligted {
     background-color: brown; /* DEBUG */
     box-shadow: 0px 0px 0px 5px brown;
 }
@@ -75,16 +85,20 @@ header {
     border-radius: 10px;
 }
 
-.evento {
+.contenido {
     border: 1px solid #ccc;
     background-color: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 5px;
     max-width: 500px; /* set the maximum width to 500 pixels */
     margin: 0 auto; /* center the element horizontally */
+    margin-bottom: 10px;
 }
 
-.evento img {
+.contenido img {
     max-width: 100%;
     height: auto;
+}
+
+.popup {
+    text-align: center;
 }

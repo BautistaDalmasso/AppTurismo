@@ -28,3 +28,34 @@ var eventos = [
         "hora": "10:00"
     },
 ]
+
+var puntosDeAsistencia = [
+    {
+        "id": 1,
+        "tipo": "Centro",
+        "posicion": [-34.521672, -58.701168],
+        "nombre_lugar": "UNGS",
+        "direccion": "Juan María Gutiérrez 1150",
+        "contacto": "(54 11) 4469-7795",
+        "horario_att": "8:00 - 22:00"
+    },
+    {
+        "id": 2,
+        "tipo": "Movil",
+        "posicion": [-34.523197, -58.700870],
+        "nombre_lugar": "Colectivo al costado de la UNGS",
+        "direccion": "Juan María Gutiérrez 1150",
+        "contacto": "1111-1111",
+        "dia_att": "11-11-2023",
+        "horario_att": "11:00 - 22:00"
+    },
+    {
+        "id": 3,
+        "tipo": "Centro",
+        "posicion": [-34.54337306092059, -58.7123753528407],
+        "nombre_lugar": "Municipalidad de San Miguel",
+        "direccion": "Domingo Faustino Sarmiento 1551",
+        "contacto": "1111-1111",
+        "horario_att": "11:00 - 22:00"
+    },
+]

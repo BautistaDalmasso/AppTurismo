@@ -23,8 +23,9 @@
 
     <!-- Scripts -->
     <script src="scripts/mapa.js"></script>
-    <script src="scripts/navigation.js"></script>
     <script src="scripts/handleEventos.js"></script>
+    <script src="scripts/handlePuntosDeAsistencia.js"></script>
+    <script src="scripts/navigation.js"></script>
     <script src="scripts/main.js"></script>
 </head>
 
@@ -36,6 +37,7 @@
     <div id="content">
 
         <div id="content-bar">
+            <!-- Barra horizontal de navegación para cambiar entre los distintos contenidos. -->
             <div id="navigation">
                 <div class="nav-item" id="nav-eventos" onclick="changeNavItem('eventos')">
                     Eventos
@@ -54,6 +56,7 @@
                 </div>
             </div>
 
+            <!-- Barra vertical que muestra el contenido de la categoria seleccionada. -->
             <div id="content-items">
                 <div class="content-hidden" id="cont-eventos">
                     <div class="filter" id="filter-events">
@@ -67,7 +70,12 @@
                     <p>Sitios y Atractivos</p>
                 </div>
                 <div class="content-hidden" id="cont-puntos">
-                    <p>Puntos de Asistencia</p>
+                    <div class="filter" id="filter-puntos">
+                        <input class="filter-field" id="search-punto" name="buscar punto" 
+                        type="search" placeholder="Buscar Punto de Asistencia">
+                        <button onclick="filtrarPuntos()">Filtrar</button>
+                    </div>
+                    <div id="result-puntos"></div>
                 </div>
                 <div class="content-hidden" id="cont-comercios">
                     <p>Comercios</p>
@@ -76,10 +84,17 @@
                     <p>Productos</p>
                 </div>
             </div>
+
         </div>
 
         <div id="map"></div>
     </div>
+
+    <footer>
+        <a href="supervisor.html">Ingreso Supervisores</a>
+        <a href="personal.html">Ingreso Personal de Secretaria</a>
+        <a href="comerciante.html">Ingreso Comerciantes</a>
+    </footer>
 </body>
 
 </html>
