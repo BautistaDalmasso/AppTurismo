@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo - Comerciante</title>
+    <title>Crear Aviso</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Comerciantes</h1>
 
     <a href="index.html"><h3>Volver a la vista general.</h3></a>
+    <div class="container">
+        <h2>Crear Nuevo Aviso</h2>
+        <form id="aviso-form">
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea><br>
+
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="electronica">Electrónica</option>
+                <option value="ropa">Ropa</option>
+                <option value="hogar">Hogar</option>
+            </select><br>
+
+            <label for="imagen">Imagen del Producto:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
+
+            <button type="submit">Crear Aviso</button>
+        </form>
+    </div>
+
+    <a href="./Meli/meli.html"><h3>Comparar Precios en MercadoLibre.</h3></a>
+
+    <script src="comerciante.js"></script>
 </body>
 </html>
