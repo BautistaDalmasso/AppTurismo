@@ -10,7 +10,7 @@ var toggleAction = {
     "eventos": toggleEventos,
     "sitios": function () {console.log("TODO")},
     "puntos": togglePuntos,
-    "comercios": function () {console.log("TODO")},
+    "comercios": toggleComercios,
     "productos": function () {console.log("TODO")}
 }
 

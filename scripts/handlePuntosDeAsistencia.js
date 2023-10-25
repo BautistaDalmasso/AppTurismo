@@ -120,8 +120,8 @@ function _esconderPuntos() {
     /** Esconde todos los puntos y sus markers. */ 
 
     _manipularPuntos(puntosDeAsistencia, 
-        [punto => setMarkerVisibility(_idPunto(punto), false),
-        punto => $(`#${_idPunto(punto)}`).hide()]
+        [punto => setMarkerVisibility(_idPunto(punto), false)]
+        //, punto => $(`#${_idPunto(punto)}`).hide()
       );
 }
 
@@ -129,8 +129,8 @@ function _mostrarPuntos(puntosAMostrar) {
     /** Muestra los puntos deseados y sus markers. */ 
 
     _manipularPuntos(puntosAMostrar, 
-        [punto => setMarkerVisibility(_idPunto(punto), true),
-        punto => $(`#${_idPunto(punto)}`).show()]
+        [punto => setMarkerVisibility(_idPunto(punto), true)]
+        //, punto => $(`#${_idPunto(punto)}`).show()
     );
 }
 
