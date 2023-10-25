@@ -125,6 +125,7 @@ var avisos = [
         "comercio_id": 2,
         "nombre": "Partido de Futbol",
         "categoria": categorias[3],
+        "descripcion": "Partidos de futbol para hombres, mujeres o mixtos.",
         "tipo": "Servicio",
         "restricciones": "Para mayores de 18 años, hay partidos por sexo y partidos mixtos.",
         "precio": "El equipo que pierde paga la coca.",
@@ -135,8 +136,9 @@ var avisos = [
         "comercio_id": 3,
         "nombre": "Fichas para el Bingo",
         "categoria": categorias[1],
+        "descripcion": "Fichas para utilizar en los distintos entretenimientos de Casino.",
         "tipo": "Articulo",
-        "caracteristicas": "Fichas para utilizar en los distintos entretenimientos de Casino.",
+        "caracteristicas": "Redondas.",
         "precio": "Convertí hasta un maximo de 10.000$ a fichas.",
         "imagenes": ["imagenes/fichas.webp"]
     }

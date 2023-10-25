@@ -87,6 +87,14 @@
                 </div>
                 <!-- Productos -->
                 <div class="content-hidden" id="cont-productos">
+                    <div class="filter" id="filter-productos">
+                        <input class="filter-field" id="search-producto" name="buscar productos" 
+                        type="search" placeholder="Buscar Productos">
+                        <select id="productos-categoria" name="categoria" required>
+                            <option value="Any">Categoria</option>
+                        </select>
+                        <button onclick="filtrarProductos()">Filtrar</button>
+                    </div>
                     <div id="result-productos"></div>
                 </div>
             </div>
