@@ -40,7 +40,7 @@ function _crearHtmlComercio(comercio) {
     <p>Dirección: ${comercio.direccion}</p>
     <p>Horario: ${comercio.horario}</p>
     <button onClick=irAComercio(${argumento})>Ir al Comercio</button> 
-    <button onClick=verProductos(${argumento})>Ver Productos</button>
+    <button onClick=verProductos(${comercio.id})>Ver Productos</button>
     `
     )
 }
@@ -54,6 +54,15 @@ function irAComercio(idComercio) {
 
 function verProductos(idComercio) {
     changeNavItem("productos");
+    filtrarProductosPorComercio(idComercio);
+}
+
+function filtrarComercioPorId(idComercio) {
+    let comercio = comercios[idComercio];
+
+    _esconderComercios();
+    $(`#${_idComercio(comercio)}`).show();
+    highlightComercio(comercio);
 }
 
 function toggleComercios() {

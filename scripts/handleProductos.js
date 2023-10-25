@@ -17,6 +17,8 @@ function _agregarOpcionesCategoriaProdcutos() {
 }
 
 function _crearHtmlProducto(producto) {
+    let argumento = `"${producto.comercio_id}"`
+
     return htmlContenido("producto", producto,
     `
     <h4>${producto.nombre}</h4>
@@ -28,7 +30,7 @@ function _crearHtmlProducto(producto) {
     <br>
     <img src="${producto.imagenes[0]}" alt="Imagen del producto">
     <br>
-    <button>Ver Comercio</button>
+    <button onClick=verComercio(${argumento})>Ver Comercio</button>
     `
     );
 }
@@ -38,6 +40,11 @@ function _caracteristicaORestricciones(producto) {
         return `Caracteristicas: ${producto.caracteristicas}`;
     }
     return `Restricciones: ${producto.restricciones}`;
+}
+
+function verComercio(idComercio) {
+    changeNavItem("comercios");
+    filtrarComercioPorId(idComercio);
 }
 
 function filtrarProductos() {
@@ -58,6 +65,15 @@ function _prodCoincideTextoFiltro(producto) {
 
 function _prodCoincideCategoria(producto) {
     return _prodFiltroCategoria == "Any" || producto.categoria == _prodFiltroCategoria;
+}
+
+function filtrarProductosPorComercio(idComercio) {
+    let res = avisos.filter(
+        aviso => aviso.comercio_id == idComercio
+    );
+
+    _esconderProductos();
+    _mostrarProductos(res);
 }
 
 function _esconderProductos() {
