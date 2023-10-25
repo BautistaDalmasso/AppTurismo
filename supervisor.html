@@ -7,5 +7,68 @@
     <h1>Supervisores</h1>
 
     <a href="index.html"><h3>Volver a la vista general.</h3></a>
+
+    <div class="alta">
+    	<h1>Solicitar órdenes de alta</h1>
+        <h2>Alta comerciante</h2>
+        
+        <form id="comerciante-alta">
+        	<h3>Datos comerciante</h3>
+        	<label for="nombre">Nombre:</label>
+        	<input id="nombre" name="nombre" required></input>
+            <br>
+        	<label for="dni">Dni:</label>
+        	<input id="dni" name="dni" required></input>
+        	<br>
+            <label for="telefono">Telefono:</label>
+        	<input id="telefono" name="telefono" required></input>
+        	<br>
+            <label for="mail">Mail de contacto:</label>
+        	<input id="mail" name="mail" required></input>
+        	<br>
+            
+            <h3>Datos de Local de comerciante</h3>
+            <label for="direccion">Dirección:</label>
+        	<input id="direccion" name="direccion" required></input>
+        	<br>
+            <label for="descripcion">Descripción:</label>
+        	<input id="descripcion" name="descripcion" required></input>
+        	<br>
+            <label for="horario">Horario:</label>
+        	<input id="horario" name="horario" required></input>
+        	<br>
+            
+        	<br><button type="submit">Enviar orden de alta de comerciante</button>
+        </form>
+        
+        <h2>Alta Nuevo Personal</h2>
+        
+        <form id="personal-alta">
+        	<h3>Datos personal</h3>
+        	<label for="nombre">Nombre:</label>
+        	<input id="nombre" name="nombre" required></input>
+            <br>
+        	<label for="dni">Dni:</label>
+        	<input id="dni" name="dni" required></input>
+        	<br>
+            <label for="mail">Mail de contacto:</label>
+        	<input id="mail" name="mail" required></input>
+        	<br>
+            
+        	<br><button type="submit">Enviar orden de alta de personal nuevo</button>
+        </form>
+    </div>
+    
+    <div class="baja">
+    	<h1>Deshabilitar Miembros</h1>
+        
+    	<form id="miembro-baja">
+        	<label for="identificador">Identificador:</label>
+        	<input id="identificador" name="identificador" required></input>
+        	<br>
+        
+        	<br><button type="submit">Deshabilitar miembro del portal</button>
+        </form>
+    </div>
 </body>
 </html>
