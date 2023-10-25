@@ -6,6 +6,7 @@ function main() {
     agregarHtmlEventos(eventos);
     agregarPuntosDeAsistencia();
     agregarComercios();
+    agregarProductos();
 }
 
 function idHtmlContenido(tipo, objeto) {

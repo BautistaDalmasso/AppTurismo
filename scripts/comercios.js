@@ -38,7 +38,8 @@ function _crearHtmlComercio(comercio) {
     <h4>${comercio.nombre}</h4>
     <p>Dirección: ${comercio.direccion}</p>
     <p>Horario: ${comercio.horario}</p>
-    <button onClick=irAComercio(${argumento})>Ir al Comercio</button> <button>Ver Productos</button>
+    <button onClick=irAComercio(${argumento})>Ir al Comercio</button> 
+    <button onClick=verProductos(${argumento})>Ver Productos</button>
     `
     )
 }
@@ -48,6 +49,10 @@ function irAComercio(idComercio) {
     irA(comercio.posicion);
     abrirPopup(idComercio);
     highlightComercio(comercio);
+}
+
+function verProductos(idComercio) {
+    changeNavItem("productos");
 }
 
 function toggleComercios() {
