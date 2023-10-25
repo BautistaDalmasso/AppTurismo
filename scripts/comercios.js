@@ -1,4 +1,7 @@
+const HIGHLIGTED_COMERCIO = "content-highligted";
+
 var _enComercios = false;
+var _currentHighligtedComercio = "";
 
 var _comercios = {};
 
@@ -20,7 +23,7 @@ function _agregarMarkerComercio(comercio) {
         `<div class="popup">
         ${comercio.nombre}
         </div>`,
-        [["click", function () {console.log("Highlight comercio")}]]
+        [["click", function () {highlightComercio(comercio)}]]
     );
 }
 
@@ -29,14 +32,31 @@ function _agregarComercioAlContenido(comercio) {
 }
 
 function _crearHtmlComercio(comercio) {
+    let argumento = `"${_idComercio(comercio)}"`;
     return htmlContenido("comercio", comercio,
     `
     <h4>${comercio.nombre}</h4>
     <p>Dirección: ${comercio.direccion}</p>
     <p>Horario: ${comercio.horario}</p>
-    <button>Ir al Comercio</button> <button>Ver Productos</button>
+    <button onClick=irAComercio(${argumento})>Ir al Comercio</button> <button>Ver Productos</button>
     `
     )
+}
+
+function irAComercio(idComercio) {
+    let comercio = _comercios[idComercio];
+    irA(comercio.posicion);
+    abrirPopup(idComercio);
+    highlightComercio(comercio);
+}
+
+function highlightComercio(comercio) {
+    if (_currentHighligtedComercio != "") {
+        $(`#${_currentHighligtedComercio}`).removeClass(HIGHLIGTED_COMERCIO);
+    }
+    $(`#${_idComercio(comercio)}`).addClass(HIGHLIGTED_COMERCIO);
+
+    _currentHighligtedComercio = _idComercio(comercio);
 }
 
 function toggleComercios() {
