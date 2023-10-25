@@ -59,3 +59,85 @@ var puntosDeAsistencia = [
         "horario_att": "11:00 - 22:00"
     },
 ]
+
+var comercios = [
+    {
+        "id": 1,
+        "nombre": "Terrazas de Mayo",
+        "posicion": [-34.53138840321933, -58.703033188918184],
+        "direccion": "Av. Gral. Juan Gregorio Lemos 101",
+        "horario": "10:00 - 22:00"
+    },
+    {
+        "id": 2,
+        "nombre": "Ungs Deportes",
+        "posicion": [-34.52216560453723, -58.697955464415905],
+        "direccion": "José León Suárez 1466",
+        "horario": "08:00 - 22:00"
+    },
+    {
+        "id": 3,
+        "nombre": "Bingo San Miguel",
+        "posicion": [-34.54174706915652, -58.70957893689795],
+        "direccion": "Belgrano 1099",
+        "horario": "00:00 - 23:59"
+    }
+]
+
+var categorias = ["Comida", "Entretenimiento", "Cultura", "Deportes", "Electrónica", "Ropa", "Hogar"]
+
+var avisos = [
+    {
+        "id": 1,
+        "comercio_id": 1,
+        "nombre": "Paseo en Coches de Animales",
+        "categoria": categorias[1],
+        "descripcion": "Un paseo por el shopping en los coches de peluche de animales.",
+        "tipo": "Servicio",
+        "restricciones": "Solo para menores de 10 años.",
+        "precio": "300$ por 15 minutos",
+        "imagenes": ["imagenes/coche_animales.jpg"]
+    },
+    {
+        "id": 2,
+        "comercio_id": 1,
+        "nombre": "Proyección de El Señor de los Anillos",
+        "categoria": categorias[1],
+        "descripcion": "Asistí a la proyección de El Señor de Los Anillos en el cine del shopping!",
+        "tipo": "Servicio",
+        "restricciones": "No se puede ingresar a la sala con comida de afuera.",
+        "precio": "3.500$",
+        "imagenes": ["imagenes/el_senior_anillos.jpg"]
+    },
+    {
+        "id": 3,
+        "comercio_id": 1,
+        "nombre": "Hamburguesa",
+        "categoria": categorias[0],
+        "descripcion": "Hamburguesa.",
+        "tipo": "Articulo",
+        "caracteristicas": "Hamburguesa de carne con queso y panceta.",
+        "precio": "1.899$",
+        "imagenes": ["imagenes/hamburguesa.webp"]
+    },
+    {
+        "id": 4,
+        "comercio_id": 2,
+        "nombre": "Partido de Futbol",
+        "categoria": categorias[3],
+        "tipo": "Servicio",
+        "restricciones": "Para mayores de 18 años, hay partidos por sexo y partidos mixtos.",
+        "precio": "El equipo que pierde paga la coca.",
+        "imagenes": ["imagenes/futbol_ungs.jpg"]
+    },
+    {
+        "id": 5,
+        "comercio_id": 3,
+        "nombre": "Fichas para el Bingo",
+        "categoria": categorias[1],
+        "tipo": "Articulo",
+        "caracteristicas": "Fichas para utilizar en los distintos entretenimientos de Casino.",
+        "precio": "Convertí hasta un maximo de 10.000$ a fichas.",
+        "imagenes": ["imagenes/fichas.webp"]
+    }
+]
