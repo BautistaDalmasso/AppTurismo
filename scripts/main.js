@@ -5,6 +5,8 @@ function main() {
     changeNavItem(NAV_INICIAL);
     agregarHtmlEventos(eventos);
     agregarPuntosDeAsistencia();
+    agregarComercios();
+    agregarProductos();
 }
 
 function idHtmlContenido(tipo, objeto) {

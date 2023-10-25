@@ -104,12 +104,21 @@ function irAPunto(idPunto) {
 }
 
 function highlightPunto(punto) {
-    if (_currentHighligtedPunto != "") {
-        $(`#${_currentHighligtedPunto}`).removeClass(HIGHLIGTED_PUNTO);
+    let soloRemover = _currentHighligtedPunto == _idPunto(punto);
+    _removerPuntoHighlight();
+    if (soloRemover) {
+        return;
     }
     $(`#${_idPunto(punto)}`).addClass(HIGHLIGTED_PUNTO);
 
     _currentHighligtedPunto = _idPunto(punto);
+}
+
+function _removerPuntoHighlight() {
+    if (_currentHighligtedPunto != "") {
+        $(`#${_currentHighligtedPunto}`).removeClass(HIGHLIGTED_PUNTO);
+        _currentHighligtedPunto = "";
+    }
 }
 
 function _idPunto(punto) {

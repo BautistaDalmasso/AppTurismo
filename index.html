@@ -25,6 +25,8 @@
     <script src="scripts/mapa.js"></script>
     <script src="scripts/handleEventos.js"></script>
     <script src="scripts/handlePuntosDeAsistencia.js"></script>
+    <script src="scripts/handleComercios.js"></script>
+    <script src="scripts/handleProductos.js"></script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/main.js"></script>
 </head>
@@ -58,6 +60,7 @@
 
             <!-- Barra vertical que muestra el contenido de la categoria seleccionada. -->
             <div id="content-items">
+                <!-- Eventos -->
                 <div class="content-hidden" id="cont-eventos">
                     <div class="filter" id="filter-events">
                         <input class="filter-field" id="search-event" name="nombre evento" 
@@ -66,22 +69,38 @@
                     </div>
                     <div id="result-eventos"></div>
                 </div>
+                <!-- Sitios -->
                 <div class="content-hidden" id="cont-sitios">
                     <p>Sitios y Atractivos</p>
                 </div>
                 <div class="content-hidden" id="cont-puntos">
                     <div class="filter" id="filter-puntos">
                         <input class="filter-field" id="search-punto" name="buscar punto" 
-                        type="search" placeholder="Buscar Punto de Asistencia">
+                            type="search" placeholder="Buscar Punto de Asistencia">
                         <button onclick="filtrarPuntos()">Filtrar</button>
                     </div>
                     <div id="result-puntos"></div>
                 </div>
+                <!-- Comercios -->
                 <div class="content-hidden" id="cont-comercios">
-                    <p>Comercios</p>
+                    <div class="filter" id="filter-comercios">
+                        <input class="filter-field" id="search-comercio" name="buscar comercios" 
+                            type="search" placeholder="Buscar Comercios">
+                        <button onclick="filtrarComercios()">Filtrar</button>
+                    </div>
+                    <div id="result-comercios"></div>
                 </div>
+                <!-- Productos -->
                 <div class="content-hidden" id="cont-productos">
-                    <p>Productos</p>
+                    <div class="filter" id="filter-productos">
+                        <input class="filter-field" id="search-producto" name="buscar productos" 
+                            type="search" placeholder="Buscar Productos">
+                        <select id="productos-categoria" name="categoria" required>
+                            <option value="Any">Categoria</option>
+                        </select>
+                        <button onclick="filtrarProductos()">Filtrar</button>
+                    </div>
+                    <div id="result-productos"></div>
                 </div>
             </div>
 
