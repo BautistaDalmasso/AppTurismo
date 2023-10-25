@@ -2,6 +2,7 @@ const HIGHLIGTED_COMERCIO = "content-highligted";
 
 var _enComercios = false;
 var _currentHighligtedComercio = "";
+var _comFiltroTexto = "";
 
 var _comercios = {};
 
@@ -81,6 +82,29 @@ function _removeComercioHighlight() {
     }
 }
 
+function filtrarComercios() {
+    _comFiltroTexto = $("#search-comercio").val();
+
+    res = comercios.filter(
+        comercio => comercio.nombre.includes(_comFiltroTexto)
+    );
+
+    _esconderComercios();
+    _mostrarComercios(res);
+}
+
+function _esconderComercios() {
+    comercios.forEach(
+        comercio => $(`#${_idComercio(comercio)}`).hide()
+    );
+}
+
+function _mostrarComercios(comerciosAMostrar) {
+    comerciosAMostrar.forEach(
+        comercio => $(`#${_idComercio(comercio)}`).show()
+    );
+}
+
 function _idComercio(comercio) {
-    return idHtmlContenido("comercio", comercio)
+    return idHtmlContenido("comercio", comercio);
 }
