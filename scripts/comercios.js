@@ -50,20 +50,30 @@ function irAComercio(idComercio) {
     highlightComercio(comercio);
 }
 
+function toggleComercios() {
+    _enComercios = !_enComercios;
+    comercios.forEach(
+        comercio => setMarkerVisibility(_idComercio(comercio), _enComercios)
+    );
+    _removeComercioHighlight();
+}
+
 function highlightComercio(comercio) {
-    if (_currentHighligtedComercio != "") {
-        $(`#${_currentHighligtedComercio}`).removeClass(HIGHLIGTED_COMERCIO);
+    let soloRemover = _currentHighligtedComercio == _idComercio(comercio);
+    _removeComercioHighlight();
+    if (soloRemover) {
+        return;
     }
     $(`#${_idComercio(comercio)}`).addClass(HIGHLIGTED_COMERCIO);
 
     _currentHighligtedComercio = _idComercio(comercio);
 }
 
-function toggleComercios() {
-    _enComercios = !_enComercios;
-    comercios.forEach(
-        comercio => setMarkerVisibility(_idComercio(comercio), _enComercios)
-    );
+function _removeComercioHighlight() {
+    if (_currentHighligtedComercio != "") {
+        $(`#${_currentHighligtedComercio}`).removeClass(HIGHLIGTED_COMERCIO);
+        _currentHighligtedComercio = "";
+    }
 }
 
 function _idComercio(comercio) {
