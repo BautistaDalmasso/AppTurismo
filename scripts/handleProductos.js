@@ -2,6 +2,7 @@ var _prodFiltroTexto = "";
 var _prodFiltroCategoria = "";
 
 function agregarProductos() {
+    _obtenerCotizacion();
     _agregarOpcionesCategoriaProdcutos();
     avisos.forEach(
         aviso => $("#result-productos").append(_crearHtmlProducto(aviso))
@@ -86,6 +87,18 @@ function _mostrarProductos(productosAMostrar) {
     productosAMostrar.forEach(
         producto => $(`#${_idProducto(producto)}`).show()
     );
+}
+
+function _obtenerCotizacion() {
+    fetch('https://www.dolarsi.com/api/api.php?type=dolar')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('info-cotizacion').textContent 
+            = `Dolar - Compra: $ ${data[0].casa.compra} | Venta: $ ${data[0].casa.venta}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 function _idProducto(producto) {
