@@ -107,3 +107,19 @@ footer a {
 .popup {
     text-align: center;
 }
+
+#cotizacion {
+    margin: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#info-cotizacion {
+    display: inline;
+    padding: 5px;
+    text-align: center;
+    background-color: #D5ECC2;
+    border-radius: 10px;
+}
+
+
