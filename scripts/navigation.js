@@ -8,7 +8,7 @@ var currentItem = "eventos";
 
 var toggleAction = {
     "eventos": toggleEventos,
-    "sitios": function () {console.log("TODO")},
+    "sitios": function () {console.log("TODO")}, //toggleSitios,
     "puntos": togglePuntos,
     "comercios": toggleComercios,
     "productos": function () {console.log("TODO")}

@@ -143,3 +143,27 @@ var avisos = [
         "imagenes": ["imagenes/fichas.webp"]
     }
 ]
+
+var sitios = [
+    {
+        "id": 1,
+        "posicion": [-34.521672, -58.701168],
+        "nombre": "Universidad Nacional de General Sarmiento",
+        "descripcion": "La mejor universidad de la zona.",
+        "lugar": "Los Polvorines"
+    },
+    {
+        "id": 2,
+        "posicion": [-34.521672, -58.701168],
+        "nombre": "Universidad Nacional de General Sarmiento",
+        "descripcion": "La mejor universidad de la zona.",
+        "lugar": "Los Polvorines"
+    },
+    {
+        "id": 3,
+        "posicion": [-34.521672, -58.701168],
+        "nombre": "Universidad Nacional de General Sarmiento",
+        "descripcion": "La mejor universidad de la zona.",
+        "lugar": "Los Polvorines"
+    },
+]
