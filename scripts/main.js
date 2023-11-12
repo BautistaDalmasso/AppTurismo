@@ -4,7 +4,7 @@ function main() {
     iniciarMapa();
     changeNavItem(NAV_INICIAL);
     agregarHtmlEventos(eventos);
-    //agregarSitios();
+    agregarSitios();
     agregarPuntosDeAsistencia();
     agregarComercios();
     agregarProductos();

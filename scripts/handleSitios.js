@@ -6,34 +6,39 @@ var _currentHighligtedSitio = "";
 var sitios = {};
 
 function filtrarSitios() {
+    console.log('filtrarSitios called');
     let res = _obtenerSitiosFiltrados();
 
     _esconderSitios();
-    
+
     _mostrarSitios(res);
 }
 
 function _obtenerSitiosFiltrados() {
+    console.log('_obtenerSitiosFiltrados called');
     let filtro = $("#search-sitio").val();
 
-    return sitios.filter(
+    return sitiosYAtractivos.filter(
         sitio => sitio.nombre.includes(filtro) || sitio.descripcion.includes(filtro)
     );
 }
 
 function agregarSitios() {
-    sitios.forEach(
+    console.log('agregarSitios called');
+    sitiosYAtractivos.forEach(
         sitio => _agregarSitio(sitio)
     );
 }
 
 function _agregarSitio(sitio) {
+    console.log('_agregarSitio called');
     sitios[_idSitio(sitio)] = sitio;
     _agregarMarkerSitio(sitio);
     _agregarSitioAlContenido(sitio);
 }
 
 function _agregarMarkerSitio(sitio) {
+    console.log('_agregarMarkerSitio called');
     agregarMarker(
         _idSitio(sitio), sitio.posicion,
         `<div class="popup">
@@ -44,18 +49,21 @@ function _agregarMarkerSitio(sitio) {
 }
 
 function _agregarSitioAlContenido(sitio) {
+    console.log('_agregarSitioAlContenido called');
     $("#result-sitios").append(_crearHtmlSitio(sitio));
 }
 
 function toggleSitios() {
+    console.log('toggleSitios called');
     _enSitios = !_enSitios;
-    sitios.forEach(
+    sitiosYAtractivos.forEach(
         sitio => setMarkerVisibility(_idSitio(sitio), _enSitios)
     );
     _removerSitioHighlight();
 }
 
 function _crearHtmlSitio(sitio) {
+    console.log('_crearHtmlSitio called');
     let argumento = `"${_idSitio(sitio)}"`;
     return htmlContenido("sitio", sitio,
         `
@@ -68,6 +76,7 @@ function _crearHtmlSitio(sitio) {
 }
 
 function irASitio(idSitio) {
+    console.log('irASitio called');
     let sitio = sitios[idSitio];
     highlightSitio(sitio);
     irA(sitio.posicion);
@@ -75,6 +84,7 @@ function irASitio(idSitio) {
 }
 
 function highlightSitio(sitio) {
+    console.log('highlightSitio called');
     let soloRemover = _currentHighligtedSitio == _idSitio(sitio);
     _removerSitioHighlight();
     if (soloRemover) {
@@ -85,6 +95,7 @@ function highlightSitio(sitio) {
 }
 
 function _removerSitioHighlight() {
+    console.log('_removerSitioHighlight called');
     if (_currentHighligtedSitio != "") {
         $(`#${_currentHighligtedSitio}`).removeClass(HIGHLIGTED_SITIO);
         _currentHighligtedSitio = "";
@@ -92,10 +103,12 @@ function _removerSitioHighlight() {
 }
 
 function _idSitio(sitio) {
+    console.log('_idSitio called');
     return idHtmlContenido("sitio", sitio);
 }
 
 function _esconderSitios() {
+    console.log('_esconderSitios called');
     _manipularSitios(sitios, [
         sitio => setMarkerVisibility(_idSitio(sitio), false),
         sitio => $(`#${_idSitio(sitio)}`).hide()
@@ -103,6 +116,7 @@ function _esconderSitios() {
 }
 
 function _mostrarSitios(sitiosAMostrar) {
+    console.log('_mostrarSitios called');
     _manipularSitios(sitiosAMostrar, [
         sitio => setMarkerVisibility(_idSitio(sitio), true),
         sitio => $(`#${_idSitio(sitio)}`).show()
@@ -110,6 +124,7 @@ function _mostrarSitios(sitiosAMostrar) {
 }
 
 function _manipularSitios(sitiosAManipular, callbacks) {
+    console.log('_manipularSitios called');
     callbacks.forEach(
         callback =>
         sitiosAManipular.forEach(

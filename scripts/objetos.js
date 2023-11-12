@@ -144,7 +144,7 @@ var avisos = [
     }
 ]
 
-var sitios = [
+var sitiosYAtractivos = [
     {
         "id": 1,
         "posicion": [-34.521672, -58.701168],
@@ -165,5 +165,5 @@ var sitios = [
         "nombre": "Universidad Nacional de General Sarmiento",
         "descripcion": "La mejor universidad de la zona.",
         "lugar": "Los Polvorines"
-    },
+    }
 ]
