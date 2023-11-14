@@ -24,6 +24,7 @@
     <!-- Scripts -->
     <script src="scripts/mapa.js"></script>
     <script src="scripts/handleEventos.js"></script>
+    <script src="scripts/handleSitios.js"></script>
     <script src="scripts/handlePuntosDeAsistencia.js"></script>
     <script src="scripts/handleComercios.js"></script>
     <script src="scripts/handleProductos.js"></script>
@@ -69,10 +70,16 @@
                     </div>
                     <div id="result-eventos"></div>
                 </div>
-                <!-- Sitios -->
+                <!-- Sitios y Atractivos -->
                 <div class="content-hidden" id="cont-sitios">
-                    <p>Sitios y Atractivos</p>
-                </div>
+                    <div class="filter" id="filter-sitio">
+                        <input class="filter-field" id="search-sitio" name="buscar sitio" 
+                            type="search" placeholder="Buscar Sitio de Interés">
+                        <button onclick="filtrarSitios()">Filtrar</button>
+                    </div>
+                    <div id="result-sitios"></div>
+                </div>                
+                <!-- Puntos de Asistencia -->
                 <div class="content-hidden" id="cont-puntos">
                     <div class="filter" id="filter-puntos">
                         <input class="filter-field" id="search-punto" name="buscar punto" 

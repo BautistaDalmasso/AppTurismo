@@ -19,7 +19,7 @@ var eventos = [
         "hora": "23:30"
     },
     {
-        "imagen": "imagenes/event1.jpg",
+        "imagen": "imagenes/event3.jpg",
         "id": 3,
         "nombre": "Velorio del Perdedor",
         "descripcion": "Se realizará el velorio del perdedor de la pelea a muerte.",
@@ -141,5 +141,32 @@ var avisos = [
         "caracteristicas": "Redondas.",
         "precio": "Convertí hasta un maximo de 10.000$ a fichas.",
         "imagenes": ["imagenes/fichas.webp"]
+    }
+]
+
+var sitiosYAtractivos = [
+    {
+        "id": 1,
+        "posicion": [-34.52187807306582, -58.70060392949922],
+        "nombre": "Universidad Nacional de General Sarmiento",
+        "descripcion": "La mejor universidad de la zona.",
+        "lugar": "Malvinas Argentinas",
+        "imagenes": ["imagenes/ungs.jpg"]
+    },
+    {
+        "id": 2,
+        "posicion": [-34.51338190216312, -58.70642501518344],
+        "nombre": "Estadio Malvinas Argentinas de San Miguel",
+        "descripcion": "Estadio del club más famoso de la zona.",
+        "lugar": "Los Polvorines",
+        "imagenes": ["imagenes/sanmiguel.jpg"]
+    },
+    {
+        "id": 3,
+        "posicion": [-34.50817551534822, -58.68760918868838],
+        "nombre": "Club Universitario de Buenos Aires C.U.B.A",
+        "descripcion": "CUBA ofrece una gran variedad de deportes y actividades deportivas.",
+        "lugar": "Los Polvorines",
+        "imagenes": ["imagenes/cuba.jpg"]
     }
 ]
