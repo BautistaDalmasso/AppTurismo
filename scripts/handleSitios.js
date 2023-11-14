@@ -15,11 +15,10 @@ function filtrarSitios() {
 }
 
 function _obtenerSitiosFiltrados() {
-
-    let filtro = $("#search-sitio").val();
+    let filtro = $("#search-sitio").val().toLowerCase();
 
     return sitiosYAtractivos.filter(
-        sitio => sitio.nombre.includes(filtro) || sitio.descripcion.includes(filtro)
+        sitio => sitio.nombre.toLowerCase().includes(filtro) || sitio.descripcion.toLowerCase().includes(filtro)
     );
 }
 
@@ -62,7 +61,9 @@ function _crearHtmlSitio(sitio) {
         <p>Descripción: ${sitio.descripcion}</p>
         <p>Lugar: ${sitio.lugar}</p>
         <img src="${sitio.imagenes}" alt="Imagen del sitio">
+        <div>
         <button onClick=irASitio(${argumento})>Ir al sitio</button>
+        </div>
         `
     );
 }
@@ -110,10 +111,10 @@ function _mostrarSitios(sitiosAMostrar) {
 }
 
 function _manipularSitios(sitiosAManipular, callbacks) {
-    callbacks.forEach(
-        callback =>
-        sitiosAManipular.forEach(
-            sitio => callback(sitio)
-        )
+    //Paso sitiosAManipular como array
+    const sitiosArray = Object.values(sitiosAManipular);
+
+    callbacks.forEach(callback =>
+        sitiosArray.forEach(sitio => callback(sitio))
     );
 }

@@ -10,10 +10,10 @@ function _obtenerEventosFiltrados() {
     /** Devuelve todos los Eventos que se ajustan al filtro ingresado por el usuario.
      *  El filtro es un texto que le permite a los usuarios buscar por nombre o descripción.
      */
-    let filtro = $("#search-event").val();
+    let filtro = $("#search-event").val().toLowerCase();
     
     return eventos.filter(
-        evento => evento.nombre.includes(filtro) || evento.descripcion.includes(filtro)
+        evento => evento.nombre.toLowerCase().includes(filtro) || evento.descripcion.toLowerCase().includes(filtro)
     );
 }
 

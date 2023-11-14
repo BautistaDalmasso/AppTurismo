@@ -18,10 +18,10 @@ function _obtenerPuntosFiltrados() {
     /** Devuelve todos los Puntos de Asistencia que se ajustan al filtro ingresado por el usuario.
     * El filtro es un texto que le permite a los usuarios buscar por nombre o dirección.
     */
-    let filtro = $("#search-punto").val();
+    let filtro = $("#search-punto").val().toLowerCase();
 
     return puntosDeAsistencia.filter(
-        punto => punto.nombre_lugar.includes(filtro) || punto.direccion.includes(filtro)
+        punto => punto.nombre_lugar.toLowerCase().includes(filtro) || punto.direccion.toLowerCase().includes(filtro)
     );
 }
 
