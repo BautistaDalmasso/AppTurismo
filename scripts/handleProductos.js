@@ -49,7 +49,7 @@ function verComercio(idComercio) {
 }
 
 function filtrarProductos() {
-    _prodFiltroTexto = $("#search-producto").val();
+    _prodFiltroTexto = $("#search-producto").val().toLowerCase();
     _prodFiltroCategoria = $("#productos-categoria").val();
 
     let res = avisos.filter(
@@ -61,7 +61,7 @@ function filtrarProductos() {
 }
 
 function _prodCoincideTextoFiltro(producto) {
-    return producto.nombre.includes(_prodFiltroTexto) || producto.descripcion.includes(_prodFiltroTexto);
+    return producto.nombre.toLowerCase().includes(_prodFiltroTexto) || producto.descripcion.toLowerCase().includes(_prodFiltroTexto);
 }
 
 function _prodCoincideCategoria(producto) {

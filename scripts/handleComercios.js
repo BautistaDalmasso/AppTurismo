@@ -92,10 +92,10 @@ function _removeComercioHighlight() {
 }
 
 function filtrarComercios() {
-    _comFiltroTexto = $("#search-comercio").val();
+    _comFiltroTexto = $("#search-comercio").val().toLowerCase();
 
     res = comercios.filter(
-        comercio => comercio.nombre.includes(_comFiltroTexto)
+        comercio => comercio.nombre.toLowerCase().includes(_comFiltroTexto)
     );
 
     _esconderComercios();
